@@ -30,3 +30,5 @@ $string['pluginname'] = 'Learning Sandbox Online';
 // A description of the theme displayed in the theme selector.
 $string['choosereadme'] = 'Theme for online learning sandboxes.';
 
+$string['credsforadmin'] = 'Copy the credentials for the site administrator.';
+
