@@ -89,7 +89,10 @@
         "sitename": "Beer & Chips",
         "logintoken": "randomstring",
         "maintenance": "For full access to this site, you need to login in as an admin.",
-        "languagemenu": "Choose language"
+        "languagemenu": "Choose language",
+        "ispublicsandbox": false,
+        "adminusername": "",
+        "adminpassword": ""
     }
 }}
 
@@ -117,27 +120,27 @@
     {{/cansignup}}
     {{#ispublicsandbox}}
     <div class="mb-4 text-muted">
-      <p>{{#str}} credsforadmin, theme_learningsandboxonline {{/str}}</p>
-      <div class="d-flex justify-content-between">
-        <span class="font-weight-bold">
-          {{#pix}} i/user {{/pix}} 
-          {{#str}} username {{/str}}
-        </span>
-        <span>
-          <span id="adminusername">{{adminusername}}</span>
-          <button type="button" class="btn btn-sm" data-clipboard-target="#adminusername">{{#pix}} t/copy {{/pix}}</button>
-        </span>
-      </div>
-      <div class="d-flex flex-wrap justify-content-between">
-        <span class="font-weight-bold">
-          {{#pix}} i/lock {{/pix}} 
-          {{#str}} password {{/str}}
-        </span>
-        <span>
-          <span id="adminpassword">{{adminpassword}}</span>
-          <button type="button" class="btn btn-sm" data-clipboard-target="#adminpassword">{{#pix}} t/copy {{/pix}}</button>
-        </span>
-      </div>
+        <p>{{#str}} credsforadmin, theme_learningsandboxonline {{/str}}</p>
+        <div class="d-flex justify-content-between">
+            <span class="font-weight-bold">
+                {{#pix}} i/user {{/pix}} 
+                {{#str}} username {{/str}}
+            </span>
+            <span id="adminusername" role="button" data-clipboard-text="{{adminusername}}">
+                <span class="mr-2">{{adminusername}}</span> 
+                <span>{{#pix}} t/copy {{/pix}}</span>
+            </span>
+        </div>
+        <div class="d-flex flex-wrap justify-content-between">
+            <span class="font-weight-bold">
+                {{#pix}} i/lock {{/pix}} 
+                {{#str}} password {{/str}}
+            </span>
+            <span id="adminpassword" role="button" data-clipboard-text="{{adminpassword}}">
+                <span class="mr-2">{{adminpassword}}</span> 
+                <span>{{#pix}} t/copy {{/pix}}</span>
+            </span>
+        </div>
     </div>
     {{/ispublicsandbox}}
     <hr>
@@ -248,8 +251,20 @@
         {{/canloginasguest}}
     });
     {{#ispublicsandbox}}
-        require(['theme_learningsandboxonline/clipboard'], function (ClipboardJS) {
-            new ClipboardJS('.btn'); 
+        require(['theme_learningsandboxonline/clipboard', 'jquery'], function (ClipboardJS, $) {
+            new ClipboardJS('#adminusername, #adminpassword'); 
+
+            $('#adminusername, #adminpassword').tooltip({
+                trigger: 'click',
+                title: 'Copied!',
+                placement: 'right',
+            });
+
+            $('#adminusername, #adminpassword').on('shown.bs.tooltip', function () {
+                setInterval(function () {
+                  $('#adminusername, #adminpassword').tooltip('hide');
+                }, 3000);
+            })
         });
     {{/ispublicsandbox}}
 {{/js}}
