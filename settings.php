@@ -24,7 +24,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 if ($ADMIN->fulltree) {
-    $settings = new theme_learningsandboxonline_admin_settingspage_tabs('themesettinglearningsandboxonline', get_string('configtitle', 'theme_learningsandboxonline'));
+    $settings = new theme_boost_admin_settingspage_tabs('themesettinglearningsandboxonline', get_string('configtitle', 'theme_learningsandboxonline'));
     $page = new admin_settingpage('theme_learningsandboxonline_general', get_string('generalsettings', 'theme_learningsandboxonline'));
 
     // Unaddable blocks.
