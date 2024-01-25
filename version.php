@@ -26,7 +26,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'theme_learningsandboxonline';
 $plugin->version   = 2024011500;
-$plugin->requires  = 2023042400;
+$plugin->requires  = 2023042400; // MOODLE 4.2
 
 $plugin->dependencies = [
     'theme_boost' => 2023042400,
