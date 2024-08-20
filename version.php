@@ -1,4 +1,5 @@
 <?php
+
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -18,17 +19,16 @@
  * Learning Sandbox Online.
  *
  * @package    theme_learningsandboxonline
- * @copyright  2024 Geoffrey Bernardo van Wyk <geoffrey@vanwyk.biz> 
+ * @copyright  2024 Geoffrey Bernardo van Wyk <geoffrey@vanwyk.biz>
  * @license    https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'theme_learningsandboxonline';
-$plugin->version   = 2024011600;
-$plugin->requires  = 2023100900; // MOODLE 4.3
+$plugin->version   = 2024082000;
+$plugin->requires  = 2024042200; // MOODLE 4.4
 
 $plugin->dependencies = [
-    'theme_boost' => 2023100900,
+    'theme_boost' => 2024042200,
 ];
-
